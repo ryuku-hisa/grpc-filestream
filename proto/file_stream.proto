@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// パッケージ名
+option go_package = "github.com/ryuku-hisa/grpc-filestream/proto";
+
+// サービス名
+service DataStreamHandler {
+  rpc DataStream(stream DataStreamRequest) returns(DataStreamResponse) {}  // データストリーム
+}
+
+// データストリームのリクエスト
+message DataStreamRequest {
+  bytes Data = 1;
+  string FileName = 2;
+}
+
+// データストリームのレスポンス 
+message DataStreamResponse {
+  string DataStreamStatus = 1; 
+}
+
